@@ -1,0 +1,36 @@
+{
+  "appId": "com.codivoire.soutramoi",
+  "appName": "SoutraMoi",
+  "appVersion": "1.0.0",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "iosClientId": "297478535727-ln940jitkp1mg0bm5m48e9t4k14tf8ot.apps.googleusercontent.com",
+  "androidClientId": "297478535727-6m04h9hk77rf43r03r0gdh0tf4t7vb30.apps.googleusercontent.com",
+  "clientId": "297478535727-6m04h9hk77rf43r03r0gdh0tf4t7vb30.apps.googleusercontent.com",
+  "server": {
+    "url": "http://192.168.0.131:8100",
+    "cleartext": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 5000,
+      "launchAutoHide": false,
+      "backgroundColor": "#FE6902",
+      "showSpinner": false,
+      "androidSplashResourceName": "splash"
+    },
+    "LocalNotifications": {
+      "smallIcon": "notifications_icon",
+      "iconColor": "#FE6902",
+      "sound": "beep.wav"
+    },
+    "PushNotifications": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    },
+    "GoogleAuth": {
+      "scopes": ["profile", "email"],
+      "serverClientId": "297478535727-6m04h9hk77rf43r03r0gdh0tf4t7vb30.apps.googleusercontent.com",
+      "forceCodeForRefreshToken": true
+    }
+  }
+}

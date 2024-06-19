@@ -1,0 +1,151 @@
+:root {
+  --app-grid-gutter: 25px;
+  --app-skeleton-color: #c3c3c3;
+}
+
+.app-scroll-horizontal {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-item {
+    flex: 0 0 auto;
+    display: inline-flex;
+  }
+}
+
+.app-card-title {
+  margin-top: 30px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(var(--ion-color-secondary-rgb), 0.6);
+}
+
+.app-card {
+  padding: 0;
+  border: none;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.app-card + .app-card {
+  margin-top: 30px;
+}
+
+.auth-or {
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 14px;
+  opacity: 0.5;
+  text-transform: uppercase;
+  color: var(--ion-color-secondary);
+}
+
+.auth-next {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 14px;
+  color: var(--ion-color-secondary);
+
+  a {
+    font-weight: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ion-color-primary);
+    text-decoration: none;
+
+    &:active,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.about-dialog-body {
+  color: var(--ion-color-secondary);
+  text-align: center;
+
+  img {
+    width: auto;
+    height: 27px;
+  }
+
+  p {
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    opacity: 0.7;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+  }
+
+  h5 {
+    margin: 0;
+    opacity: 0.5;
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  h4 {
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    font-weight: 700;
+
+    a {
+      color: var(--ion-color-secondary);
+      text-decoration: none;
+
+      &:active,
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .version {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .author {
+    opacity: 0.5;
+    font-size: 12px;
+  }
+}
+
+.about-dialog-content {
+  margin-top: 0 !important;
+}
+
+.about-dialog-button {
+  width: 100% !important;
+  color: var(--ion-color-secondary) !important;
+}
+
+.app-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: var(--ion-color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

@@ -1,0 +1,54 @@
+app-card {
+  padding: 20px;
+}
+
+.subscribe-cancel {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.content-card .card-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+
+  .subscribe-top-media {
+    margin-right: 20px;
+    color: var(--ion-color-primary);
+    font-size: 30px;
+  }
+
+  .subscribe-top-text {
+    font-size: 14px;
+    color: rgba(var(--ion-color-secondary-rgb), 0.7);
+  }
+}
+
+.content-body {
+  padding-top: 0 !important;
+}
+
+.subscribe-divider {
+  margin-top: 0;
+  margin-bottom: 30px;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(219, 217, 220, 0.5);
+}
+
+profile-pro-images,
+profile-pro-infos,
+profile-pro-products,
+profile-pro-services,
+profile-pro-map {
+  margin-top: 20px;
+}
+
+.subscribe-submit {
+  margin-top: 30px;
+}

@@ -1,0 +1,68 @@
+<app-page class="page-auth-login">
+  <app-navbar>
+    <button type="button" slot="start" app-back>
+      <ion-icon src="assets/icons/back.svg"></ion-icon>
+    </button>
+  </app-navbar>
+  <app-content [header]="true">
+    <div class="content-header">
+      <h4>Se connecter</h4>
+      <h5>Pour interagir avec les professionnels</h5>
+    </div>
+    <div class="content-card">
+      <div class="card-inner">
+       <!--<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <app-input>
+            <input type="text" placeholder="Adresse email ou Numéro de mobile" formControlName="username">
+          </app-input>
+          <app-input-password [toggleVisibility]="true">
+            <input type="password" placeholder="Mot de passe" formControlName="password">
+          </app-input-password>
+          <div class="login-reset-password">
+            <a [routerLink]="['/auth/forgot-password']">Mot de passe oublié ?</a>
+          </div>
+          <button type="submit" app-button color="secondary">Connexion</button>
+        </form>-->
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+          <ion-list lines="none">
+          <ion-item color="light" class="ion-margin-bottom">
+           <ion-icon name="mail" slot="start" color="primary"></ion-icon>
+            <ion-input type="email" name="email" ngModel  email #emailCtrl="ngModel" placeholder="Email" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="!emailCtrl.valid && emailCtrl.touched">
+            <p class="errorMsg">Svp entrez un mail valide.</p>
+          </ion-text>
+          <ion-item color="light">
+            <ion-icon name="key" slot="start" color="primary"></ion-icon>
+            <ion-icon color="primary" slot="end" (click)="changeType()" [name]="type ? 'eye-outline': 'eye-off-outline' "></ion-icon>
+             <ion-input [type]="type ? 'password': 'text'" name="password" ngModel #passwordCtrl="ngModel" placeholder="Password" required minlength="8"></ion-input>
+           </ion-item>
+           <ion-text color="danger" *ngIf="!passwordCtrl.valid && passwordCtrl.touched">
+            <p class="errorMsg">Le mot de passe doit comporter au minimum 8 caractères.</p>
+          </ion-text>
+          </ion-list>
+          
+          <div class="login-reset-password">
+            <a [routerLink]="['/auth/forgot-password']">Mot de passe oublié ?</a>
+          </div>
+          <button *ngIf="!isLogin" [disabled]="!f.valid" type="submit" app-button color="secondary">Connexion</button>
+        <div class="ion-text-center" *ngIf="isLogin">
+          <ion-button shape="round" color="primary" [disabled]="!f.valid">
+            <ion-spinner name="circles"></ion-spinner>
+           </ion-button>
+
+        </div>
+          
+        </form>
+        <div class="auth-next">
+          Vous n'avez pas de compte? <a [routerLink]="['/auth/register']">Inscription</a>
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <div class="auth-or">Ou</div>
+      <auth-social></auth-social>
+    </div>
+  </app-content>
+</app-page>
+

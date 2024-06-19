@@ -1,0 +1,89 @@
+<app-page class="page-search">
+  <app-navbar>
+    <button type="button" slot="start" app-back>
+      <ion-icon src="assets/icons/close.svg"></ion-icon>
+    </button>
+    <img src="assets/img/logo-name-light.png" alt="SoutraMoi" slot="center">
+  </app-navbar>
+  <app-content [header]="true">
+    <div class="content-header">
+      <h5>Trouvez facilement</h5>
+      <h4>Un professionel pour tous vos travaux</h4>
+    </div>
+    <div class="content-card">
+      <div class="card-inner">
+        <div class="search-form">
+          <div class="fields">
+            <div class="fields-group selector" *ngIf="mode">
+              <div class="search-input">
+                <select>
+                  <option value>Sélectionner un lieu...</option>
+                  <optgroup label="Abidjan">
+                    <option value="Abobo">Abobo</option>
+                    <option value="Cocody">Cocody</option>
+                    <option value="Plateau">Plateau</option>
+                    <option value="Koumassi">Koumassi</option>
+                    <option value="Yopougon">Yopougon</option>
+                  </optgroup>
+                  <optgroup label="Autres villes">
+                    <option value="Agboville">Agboville</option>
+                    <option value="Aboisso">Aboisso</option>
+                    <option value="Dabou">Dabou</option>
+                    <option value="Man">Man</option>
+                    <option value="Odiéné">Odiéné</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="search-input">
+                <select>
+                  <option value>Sélectionner un service...</option>
+                  <optgroup label="Batiment">
+                    <option value="Maçon">Maçon</option>
+                    <option value="Staffeur">Staffeur</option>
+                    <option value="Plombier">Plombier</option>
+                    <option value="Électricien">Électricien</option>
+                    <option value="Carreleur">Carreleur</option>
+                  </optgroup>
+                  <optgroup label="Mécanique">
+                    <option value="Tapissier">Tapissier</option>
+                    <option value="Aboisso">Aboisso</option>
+                    <option value="Dabou">Dabou</option>
+                    <option value="Man">Man</option>
+                    <option value="Odiéné">Odiéné</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+            <div class="fields-group editor" *ngIf="!mode">
+              <div class="search-input">
+                <ion-icon src="assets/icons/search.svg"></ion-icon>
+                <input type="text" placeholder="Plombier, maçon, cocody…">
+              </div>
+              <div class="search-tags">
+                <div class="tag">Tapissier</div>
+                <div class="tag">Tapissier</div>
+              </div>
+            </div>
+          </div>
+          <div class="switcher">
+            <button type="button" [disabled]="mode" (click)="mode = !mode">
+              <ion-icon src="assets/icons/filter.svg"></ion-icon>
+            </button>
+            <button type="button" [disabled]="!mode" (click)="mode = !mode">
+              <ion-icon src="assets/icons/edit.svg"></ion-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <div class="items-list">
+        <app-professional-card
+          *ngFor="let item of items"
+          [item]="item"
+          (external)="navigate($event)"
+        ></app-professional-card>
+      </div>
+    </div>
+  </app-content>
+</app-page>

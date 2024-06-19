@@ -1,0 +1,182 @@
+app-input + app-input,
+app-input + app-input-password,
+app-input-password + app-input,
+app-input-password + app-input-password {
+  margin-top: 20px;
+}
+
+app-input + button[app-button],
+app-input-password + button[app-button] {
+  margin-top: 25px;
+}
+
+app-input,
+app-input-password {
+  display: block;
+  position: relative;
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  textarea,
+  select {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border-radius: 15px;
+    border: 1px solid rgba(#3C3B4D, 0.2);
+    color: var(--ion-color-secondary);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+
+    &::placeholder {
+      color: rgba(var(--ion-color-secondary-rgb), 0.5);
+    }
+
+    &:focus,
+    &:active {
+      border-color: var(--ion-color-primary);
+    }
+  }
+
+  select {
+    appearance: none;
+    background-color: #FFFFFF;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 97%;
+    background-position-y: 50%;
+  }
+
+  textarea {
+    resize: none;
+    height: auto;
+    min-height: 100px;
+  }
+
+  &[floatLabel] {
+    --padding-left: 16px;
+    --padding-right: 16px;
+    --font-size: 16px;
+    --font-weight: 400;
+    --transition-duration: 0.2s;
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    textarea,
+    select {
+      padding-top: 30px;
+      padding-bottom: 15px;
+      padding-left: var(--padding-left);
+      padding-right: var(--padding-right);
+      height: auto;
+      border-radius: 10px;
+      font-size: var(--font-size);
+      font-weight: var(--font-weight);
+
+      &::placeholder {
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+        opacity: 0;
+        transition: opacity ease var(--transition-duration);
+      }
+
+      &~label {
+        cursor: inherit;
+        pointer-events: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow-y: hidden;
+        position: absolute;
+        line-height: 1;
+        top: 24px;
+        left: var(--padding-left);
+        max-width: 100%;
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+        transform-origin: top left;
+        transition-property: transform;
+        transition-duration: var(--transition-duration);
+        transition-timing-function: cubic-bezier(.08,.52,.52,1);
+      }
+
+      &:valid,
+      &:focus {
+        outline: none;
+      }
+
+      &.ng-invalid.ng-dirty:not(form)~label,
+      &.ng-invalid:not(form).form-submitted~label,
+      &.ng-valid~label,
+      &:focus~label,
+      &:valid~label {
+        color: rgba(var(--ion-color-primary-rgb), 1);
+        transform: scale(.75) translateY(-12px);
+      }
+
+      &:valid:not(:focus)~label {
+        color: rgba(var(--ion-color-secondary-rgb), 0.5);
+      }
+
+      &.ng-invalid.ng-dirty:not(form)::placeholder,
+      &.ng-invalid:not(form).form-submitted::placeholder,
+      &.ng-valid::placeholder,
+      &:focus::placeholder {
+        opacity: 1;
+      }
+    }
+  }
+
+  .slot-end {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 12px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: var(--ion-color-secondary);
+    opacity: 0.5;
+  }
+}
+
+button[app-button] {
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 15px;
+  outline: none;
+
+  &[disabled] {
+    opacity: 0.5;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &[color="primary"] {
+    background: var(--ion-color-primary);
+    color: #fff;
+  }
+
+  &[color="secondary"] {
+    background: var(--ion-color-secondary);
+    color: #fff;
+  }
+}

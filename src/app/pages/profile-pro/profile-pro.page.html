@@ -1,0 +1,93 @@
+<app-page class="page-subscribe">
+  <app-navbar [start]="false" [titleCentered]="false">
+    <img src="assets/img/logo-name-light.png" alt="SoutraMoi" slot="center">
+    <button type="button" slot="end" class="subscribe-cancel" app-back>Annuler</button>
+  </app-navbar>
+  <app-content>
+    <div class="content-header">
+      <h4>Tu es un professionnel</h4>
+      <h5>Propose tes services à des milliers d’utilisateurs et potentiels clients afin d’acroitre tes révenus.</h5>
+    </div>
+    <div class="content-card">
+      <div class="card-inner">
+        <div class="subscribe-top-media">
+          <ion-icon src="assets/icons/info.svg"></ion-icon>
+        </div>
+        <div class="subscribe-top-text">
+          Nous nous engageons à référencer des professionnels compétents et de qualifiés afin de rendre un service de qualité à nos utilisateurs.
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <hr class="subscribe-divider">
+
+      <!-- card images -->
+      <app-card>
+        <app-card-header
+          [title]="'Photo de profil & couverture'"
+          [icon]="'assets/icons/image.svg'"
+        ></app-card-header>
+        <profile-pro-images
+          [user]="user"
+          (valueChange)="picturechange($event)"
+        ></profile-pro-images>
+      </app-card>
+
+      <!-- card infos -->
+      <app-card>
+        <app-card-header
+          [title]="'Informations sur votre profil'"
+          [icon]="'assets/icons/account.svg'"
+        ></app-card-header>
+        <profile-pro-infos
+          [payload]="payload"
+          (valueChange)="valueChange($event[0], $event[1])"
+        ></profile-pro-infos>
+      </app-card>
+
+      <!-- card products -->
+      <app-card>
+        <app-card-header
+          [title]="'Produits'"
+          [suffix]="'(facultatif)'"
+          [icon]="'assets/icons/copy.svg'"
+        ></app-card-header>
+        <profile-pro-products
+          [items]="payload.products"
+          (valueChange)="valueChange('products', $event)"
+        ></profile-pro-products>
+      </app-card>
+
+      <!-- card services -->
+      <app-card>
+        <app-card-header
+          [title]="'Services'"
+          [subtitle]="'Liste des services que vous proposez'"
+          [icon]="'assets/icons/assignment.svg'"
+        ></app-card-header>
+        <profile-pro-services
+          [payload]="payload"
+          (valueChange)="valueChange('services', $event)"
+        ></profile-pro-services>
+      </app-card>
+
+      <!-- card map -->
+      <app-card>
+        <app-card-header
+          [title]="'Lieu'"
+          [icon]="'assets/icons/pin.svg'"
+        ></app-card-header>
+        <profile-pro-map
+          [payload]="payload"
+          (valueChange)="valueChange($event[0], $event[1])"
+        ></profile-pro-map>
+      </app-card>
+
+      <div class="subscribe-submit">
+        <button type="button" app-button color="secondary" (click)="submit()">
+          {{user && user.professional ? 'Mettre à jour' : 'Terminer'}}
+        </button>
+      </div>
+    </div>
+  </app-content>
+</app-page>

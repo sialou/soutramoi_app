@@ -1,0 +1,77 @@
+body {
+  padding-top: 90px;
+  padding-bottom: 30px;
+}
+
+a {
+  color: #FE6902;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d85c04;
+}
+
+.container {
+  max-width: 800px;
+}
+
+nav.app-navbar {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: #FE6902;
+  color: white;
+  z-index: 110;
+}
+
+nav.app-navbar .container {
+  height: 100%;
+}
+
+nav.app-navbar .inner {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  align-items: center;
+  height: 100%;
+  line-height: 0;
+}
+
+nav.app-navbar .inner .left,
+nav.app-navbar .inner .right {
+  display: flex;
+  height: 100%;
+}
+
+nav.app-navbar .inner .left {
+  padding-left: 10px;
+}
+
+nav.app-navbar .inner .left .nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 100%;
+}
+
+nav.app-navbar .inner .left .nav-logo img {
+  height: 35px;
+}
+
+nav.app-navbar .inner .right {
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+nav.app-navbar .inner .right .sponsor {
+  text-align: right;
+}
+
+nav.app-navbar .inner .right .sponsor img {
+  width: auto;
+  height: 50px;
+}

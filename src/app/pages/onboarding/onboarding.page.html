@@ -1,0 +1,49 @@
+<app-page>
+  <app-content>
+    <div class="onboarding">
+      <div class="onboarding-body">
+        <div class="picture-container">
+          <swiper
+            [effect]="'slide'"
+            [slidesPerView]="1"
+            (swiper)="swiper = $event"
+            (slideChange)="onSlideChange($event)"
+          >
+            <ng-template swiperSlide class="slide-item">
+              <img src="assets/img/screen-1.png" alt>
+            </ng-template>
+            <ng-template swiperSlide class="slide-item">
+              <img src="assets/img/screen-2.png" alt>
+            </ng-template>
+            <ng-template swiperSlide class="slide-item">
+              <img src="assets/img/screen-3.png" alt>
+            </ng-template>
+          </swiper>
+        </div>
+        <div class="text-container">
+          <div class="slide-info" [@SlideTransition] *ngIf="index === 0">
+            <h4>5K+ pro répertorié</h4>
+            <p>Trouvez un prestataire parmis un large choix de professionnel répertorié</p>
+          </div>
+          <div class="slide-info" [@SlideTransition] *ngIf="index === 1">
+            <h4>Services de qualité</h4>
+            <p>Des professionnels qui vous fournissent des services de qualité</p>
+          </div>
+          <div class="slide-info" [@SlideTransition] *ngIf="index === 2">
+            <h4>Entretien en ligne</h4>
+            <p>Entretien en ligne avec les professionels depuis votre téléphone portable</p>
+          </div>
+        </div>
+        <div class="dots-container">
+          <div class="dot" [ngClass]="{active: index === 0}"></div>
+          <div class="dot" [ngClass]="{active: index === 1}"></div>
+          <div class="dot" [ngClass]="{active: index === 2}"></div>
+        </div>
+      </div>
+      <div class="onboarding-footer">
+        <button type="button" (click)="next()">{{ index === 2 ? 'Commencer' : 'Suivant'}}</button>
+        <a (click)="prev()">Précédent</a>
+      </div>
+    </div>
+  </app-content>
+</app-page>

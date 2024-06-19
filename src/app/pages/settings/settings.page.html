@@ -1,0 +1,61 @@
+<app-page class="page-settings">
+  <app-navbar>
+    <button type="button" slot="start" app-back>
+      <ion-icon src="assets/icons/back.svg"></ion-icon>
+    </button>
+    <h4 slot="center">Paramètres</h4>
+  </app-navbar>
+  <app-content>
+    <div class="content-body">
+      <div class="app-card">
+        <app-list-item
+          [svgIcon]="'notifications'"
+          [title]="'Notifications'"
+          [type]="'item'"
+          (click)="toggleNotifications($event)"
+        >
+          <ion-toggle
+            [mode]="'md'"
+            [(ngModel)]="notifications"
+            (ngModelChange)="onNotificationsChange($event)"
+          ></ion-toggle>
+        </app-list-item>
+      </div>
+      <div class="app-card">
+        <app-list-item
+          [svgIcon]="'gavel'"
+          [title]="'Politique de confidentialité'"
+          [titleSize]="'small'"
+          (click)="link('https://www.soutramoi.com/conditions')"
+        ></app-list-item>
+        <app-list-item
+          [svgIcon]="'assignment'"
+          [title]="'Termes et conditions'"
+          (click)="link('https://www.soutramoi.com/conditions')"
+        ></app-list-item>
+      </div>
+      <div class="app-card">
+        <app-list-item
+          [svgIcon]="'review'"
+          [title]="'Donner votre avis'"
+          [subTitle]="'Aider nous à améliorer l\'appli'"
+          (click)="review()"
+        ></app-list-item>
+        <app-list-item
+          [svgIcon]="'share'"
+          [title]="'Partager'"
+          [subTitle]="'Invitez des amis à vous rejoindre'"
+          (click)="share()"
+        ></app-list-item>
+      </div>
+      <div class="app-card">
+        <app-list-item
+          [svgIcon]="'info'"
+          [title]="'À Propos'"
+          [subTitle]="'Version ' + version"
+          (click)="about()"
+        ></app-list-item>
+      </div>
+    </div>
+  </app-content>
+</app-page>

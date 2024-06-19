@@ -1,0 +1,77 @@
+:host {
+  --switch-items: 2;
+  --switch-padding: 2px;
+  --switch-heigth: 50px;
+  --switch-width: 100%;
+  --switch-font-size: 14px;
+  --switch-font-weight: 500;
+  --switch-border-radius: 15px;
+  --switch-border-width: 2px;
+  --switch-border-style: solid;
+  --switch-border-color: var(--ion-color-secondary);
+  --switch-background-color: #FFFFFF;
+  --switch-item-color: rgba(var(--ion-color-secondary-rgb), 0.5);
+  --switch-item-color-active: #FFFFFF;
+  --switch-item-border-radius: 15px;
+  --switch-handler-color: var(--ion-color-secondary);
+  --switch-handler-border-radius: calc(var(--switch-border-radius) - (var(--switch-padding) * 2));
+  --switch-transition-duration: 0.2s;
+  --switch-size-remaining: calc(var(--switch-padding) * 4);
+
+  display: flex;
+  position: relative;
+  width: var(--switch-width);
+  height: var(--switch-heigth);
+  background-color: var(--switch-background-color);
+  border: var(--switch-border-width) var(--switch-border-style) var(--switch-border-color);
+  border-radius: var(--switch-border-radius);
+
+  .inner {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(var(--switch-items), 1fr);
+    width: 100%;
+    background: transparent;
+
+    .item {
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(var(--switch-heigth) - var(--switch-size-remaining));
+      color: var(--switch-item-color);
+      font-size: var(--switch-font-size);
+      font-weight: var(--switch-font-weight);
+      transition: color ease var(--switch-transition-duration);
+
+      &.active {
+        color: var(--switch-item-color-active);
+      }
+    }
+  }
+
+  .inner.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .inner.disabled + .handler {
+    opacity: 0.5;
+  }
+
+  .handler {
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: var(--switch-padding);
+    left: var(--switch-padding);
+    width: calc((100% - var(--switch-size-remaining)) / var(--switch-items));
+    height: calc(var(--switch-heigth) - var(--switch-size-remaining));
+    background-color: var(--switch-handler-color);
+    border-radius: var(--switch-handler-border-radius);
+    transform: translateX(0);
+    transition: transform cubic-bezier(0.15, 0.39, 0.35, 0.64) var(--switch-transition-duration);
+    will-change: transform;
+  }
+}

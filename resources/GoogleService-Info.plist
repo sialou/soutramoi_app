@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>297478535727-ln940jitkp1mg0bm5m48e9t4k14tf8ot.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.297478535727-ln940jitkp1mg0bm5m48e9t4k14tf8ot</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCXMvU7zZhcg03LvwpILHIWykES_CKsJUM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>297478535727</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.codivoire.soutramoi</string>
+	<key>PROJECT_ID</key>
+	<string>soutramoi-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>soutramoi-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:297478535727:ios:778de5b63b86a8e44024da</string>
+</dict>
+</plist>

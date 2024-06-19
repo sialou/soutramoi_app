@@ -1,0 +1,52 @@
+<app-page class="page-auth-register-next">
+  <app-navbar>
+    <button type="button" slot="start" app-back>
+      <ion-icon src="assets/icons/back.svg"></ion-icon>
+    </button>
+  </app-navbar>
+  <app-content [header]="true">
+    <div class="content-header">
+      <h4>Lieu de résidence</h4>
+      <h5>Pour vous proposer les meilleurs professionnels près de chez vous.</h5>
+    </div>
+    <div class="content-card">
+      <div class="card-inner">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <app-input>
+            <select formControlName="city">
+              <option value selected>Sélectionner une ville</option>
+              <option *ngFor="let item of cityOptions" [value]="item.value">{{item.name}}</option>
+            </select>
+          </app-input>
+          <app-input>
+            <select formControlName="town">
+              <option value selected>Sélectionner une commune</option>
+              <ng-container *ngIf="townOptions.length > 0">
+                <option *ngFor="let item of townOptions" [value]="item.value">{{item.name}}</option>
+              </ng-container>
+            </select>
+          </app-input>
+          <button type="submit" app-button color="secondary">Terminer</button>
+        </form>
+      </div>
+    </div>
+  </app-content>
+</app-page>
+
+<ion-modal #modalEnd [isOpen]="false">
+  <ng-template>
+    <app-page [backgroundColor]="'#FFFFFF'">
+      <app-navbar [end]="false" [darkContent]="true" [shadow]="false">
+        <button type="button" slot="start" (click)="dismissModal()">
+          <ion-icon src="assets/icons/back.svg"></ion-icon>
+        </button>
+        <h4 slot="center">Paramètres</h4>
+      </app-navbar>
+      <app-content>
+        <div class="content-body">
+
+        </div>
+      </app-content>
+    </app-page>
+  </ng-template>
+</ion-modal>

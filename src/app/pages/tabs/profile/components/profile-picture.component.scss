@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+
+  .picture-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    app-avatar {
+      margin-bottom: 15px;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      padding: 0;
+      padding-left: 18px;
+      padding-right: 18px;
+      width: auto;
+      height: 35px;
+      background-color: #FFEDE5;
+      border: 1px solid var(--ion-color-primary);
+      color: var(--ion-color-primary);
+      border-radius: 5px;
+      outline: none;
+      font-size: 14px;
+      font-weight: 400;
+
+      ion-icon {
+        margin-right: 5px;
+        font-size: 17px;
+      }
+    }
+  }
+}

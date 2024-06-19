@@ -1,0 +1,183 @@
+:host {
+  display: block;
+  position: relative;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0, 0.20);
+
+  .inner {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    width: 100%;
+    border-radius: 15px;
+    outline: none;
+  }
+
+  .media {
+    position: relative;
+    border-radius: 7px;
+
+    .cover {
+      display: none;
+    }
+
+    app-avatar {
+      margin-right: 15px;
+    }
+  }
+
+  .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .job {
+      pointer-events: none;
+      color: var(--ion-color-primary);
+      font-size: 12px;
+    }
+
+    .doc {
+      pointer-events: none;
+
+      .name,
+      .location {
+        font-weight: 400;
+        color: var(--ion-color-secondary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .name {
+        font-size: 16px;
+      }
+
+      .location {
+        font-size: 14px;
+        opacity: 0.38;
+      }
+    }
+
+    .stats {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      .stars {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 13px;
+        color: #FECE39;
+
+        ion-icon {
+          font-size: 13px;
+        }
+
+        ion-icon + ion-icon {
+          margin-left: 2px;
+        }
+      }
+
+      .like {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        button.like-button {
+          pointer-events: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background-color: rgba(#575757, 0.07);
+          transition: background-color 0.2s ease, color 0.2s ease;
+          color: #818181;
+          outline: none;
+
+          ion-icon {
+            font-size: 13px;
+          }
+        }
+
+        .like-counter {
+          pointer-events: none;
+          margin-right: 7px;
+          font-size: 12px;
+          color: #818181;
+          transition: color 0.2s ease;
+        }
+
+        &.liked {
+          button.like-button {
+            background-color: rgba(var(--ion-color-primary-rgb), 0.07);
+            color: var(--ion-color-primary);
+            animation: scaleup 0.6s cubic-bezier(0.05, 0.43, 0.49, 1.1);
+          }
+
+          .like-counter {
+            color: var(--ion-color-primary);
+          }
+        }
+      }
+    }
+  }
+
+  .inner.columned {
+    flex-direction: column;
+
+    .media {
+      margin-bottom: 18px;
+      width: 100%;
+      height: 100px;
+
+      app-avatar {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        margin: 0;
+        border: 2px solid #FFFFFF;
+      }
+
+      .cover {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+        background-color: #F0F0F0;
+        background-size: 100% auto;
+      }
+    }
+
+    .info {
+      .job {
+        margin-bottom: 5px;
+      }
+
+      .doc {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@keyframes scaleup {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

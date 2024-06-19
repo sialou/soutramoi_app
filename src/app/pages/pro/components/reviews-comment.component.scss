@@ -1,0 +1,58 @@
+
+:host {
+  display: block;
+  padding: 10px;
+  background-color: #F4F5F6;
+  border-radius: 15px;
+  box-sizing: border-box;
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+
+    .name {
+      margin-left: 13px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ion-color-secondary);
+    }
+  }
+
+  .rate {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+
+    .stars {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 13px;
+
+      ion-icon {
+        font-size: 13px;
+        color: #FECE39;
+      }
+
+      ion-icon + ion-icon {
+        margin-left: 2px;
+      }
+    }
+
+    .date {
+      margin-left: 15px;
+      font-size: 12px;
+      color: rgba(var(--ion-color-secondary-rgb), 0.5);
+    }
+  }
+
+  .message {
+    font-size: 14px;
+    color: #25252B;
+    line-height: 1.2;
+    text-align: left;
+  }
+}

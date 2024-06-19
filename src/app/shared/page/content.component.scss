@@ -1,0 +1,17 @@
+:host {
+  z-index: 1;
+  flex: 1;
+  overflow-y: auto;
+
+  .page-content {
+    overflow: hidden;
+
+    &.with-tabs {
+      padding-bottom: calc(var(--app-tab-bar-margin-bottom) + var(--app-tab-bar-height));
+    }
+
+    &.with-header {
+      padding-top: 0;
+    }
+  }
+}

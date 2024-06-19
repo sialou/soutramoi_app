@@ -1,0 +1,114 @@
+.page-map {
+  --navbar-height: 56px;
+  --controls-zindex: 10;
+  --safe-area-top: var(--ion-safe-area-top, 25px);
+
+  background-color: #E6E4E0;
+
+  .map-statusbar {
+    z-index: calc(var(--controls-zindex) + 2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--safe-area-top);
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.17) 35%, rgba(0,0,0,0.6) 100%);
+  }
+
+  button.map-settings,
+  .map-controls .zoom,
+  .map-controls button.locate {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  button.map-settings,
+  .map-controls .zoom button,
+  .map-controls button.locate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    color: var(--ion-color-secondary);
+    border: none;
+    outline: none;
+
+    ion-icon {
+      font-size: 20px;
+    }
+  }
+
+  button.map-settings {
+    z-index: var(--controls-zindex);
+    position: absolute;
+    top: calc(var(--safe-area-top) + 10px);
+    right: var(--app-h-padding);
+  }
+
+  .map-controls {
+    z-index: var(--controls-zindex);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(var(--navbar-height) + var(--safe-area-top) + 40px);
+    right: var(--app-h-padding);
+    width: 45px;
+
+    .zoom {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+      width: 45px;
+
+      button {
+        background: transparent;
+      }
+
+      button + button {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .map-loader {
+    z-index: calc(var(--controls-zindex) + 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #75CFF0;
+
+    .loader-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 150px;
+      height: 55px;
+      background-color: #FFFFFF;
+      border-radius: 15px;
+    }
+  }
+
+  mgl-map {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+}

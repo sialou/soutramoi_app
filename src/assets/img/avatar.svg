@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <g id="avatar" data-name="avatar">
+    <rect fill="#f0f0f0" width="512" height="512"/>
+    <path fill="#cdcdcd" d="M512,495.89V512H0V495.89c0-33.63,96.55-148.33,256-148.33C409.6,347.56,512,471,512,495.89Z"/>
+    <circle fill="#cdcdcd" cx="253.07" cy="200.78" r="132.23"/>
+  </g>
+</svg>

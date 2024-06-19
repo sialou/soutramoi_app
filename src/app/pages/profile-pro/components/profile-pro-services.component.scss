@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+}
+
+.services-list {
+  app-input {
+    button.remove {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 15px;
+      margin: auto;
+      height: 34px;
+      width: 34px;
+      background-color: rgba(var(--ion-color-danger-rgb), 0.15);
+      color: var(--ion-color-danger);
+      border-radius: 50%;
+      font-size: 20px;
+      outline: none;
+
+      &:disabled {
+        background-color: rgba(#3C3B4D, 0.1);
+        color: rgba(var(--ion-color-secondary-rgb), 0.5);
+      }
+    }
+  }
+
+  app-input + app-input {
+    margin-top: 10px;
+  }
+}
+
+.services-add {
+  margin-top: 20px;
+  text-align: center;
+
+  button[app-button] {
+    display: inline-flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: auto;
+    height: 45px;
+    border-radius: 10px;
+
+    ion-icon {
+      margin-right: 8px;
+      transform: rotate(45deg);
+    }
+  }
+}

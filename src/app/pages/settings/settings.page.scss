@@ -1,0 +1,22 @@
+.app-card {
+  app-list-item  {
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(var(--ion-color-tertiary-rgb), 0.1);
+    }
+
+    &:first-child {
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }
+}
+
+ion-toggle {
+  --background-checked: rgba(var(--ion-color-primary-rgb), 0.3);
+  --handle-background-checked: var(--ion-color-primary);
+}

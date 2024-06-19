@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+}
+
+.page-subscribe {
+  .subscribe-picture {
+    border-radius: 15px;
+    object-fit: cover;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: inherit;
+    }
+  }
+
+  .subscribe-content {
+    margin-top: 30px;
+    text-align: center;
+
+    h4 {
+      margin: 0;
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ion-color-primary);
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ion-color-secondary);
+      opacity: 0.5;
+      line-height: 1.4;
+    }
+  }
+
+  .subscribe-actions {
+    margin-top: 30px;
+
+    button + button {
+      margin-top: 20px;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+app-input {
+  font-size: 16px;
+
+  label:focus {
+    transform: scale(.75) translateY(-11px);
+  }
+}

@@ -1,0 +1,75 @@
+<app-page class="page-auth-register">
+  <app-navbar>
+    <button type="button" slot="start" app-back>
+      <ion-icon src="assets/icons/back.svg"></ion-icon>
+    </button>
+  </app-navbar>
+  <app-content [header]="true">
+    <div class="content-header">
+      <h4>S’inscrire</h4>
+      <h5>Veuillez entrez vos informations de connexion.</h5>
+    </div>
+    <div class="content-card">
+      <div class="card-inner">
+       <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <app-input>
+            <input type="text" placeholder="Nom et prénoms" formControlName="name">
+          </app-input>
+          <app-input>
+            <input type="text" placeholder="Adresse email ou Numéro de mobile" formControlName="username">
+          </app-input>
+          <app-input-password [toggleVisibility]="true">
+            <input type="password" placeholder="Mot de passe" formControlName="password">
+          </app-input-password>
+          <app-input-password [toggleVisibility]="true">
+            <input type="password" placeholder="Confirmer le mot de passe" formControlName="passwordConfirm">
+          </app-input-password>-->
+
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+            <ion-list lines="none">
+              <ion-item color="light" class="ion-margin-bottom">
+                <ion-icon name="person" slot="start" color="primary"></ion-icon>
+                 <ion-input type="text" name="name" ngModel  email #nameCtrl="ngModel" placeholder="Nom et prénoms" required minlength="8"></ion-input>
+               </ion-item>
+               <ion-text color="danger" *ngIf="!nameCtrl.valid && nameCtrl.touched">
+                 <p class="errorMsg">Svp entrez un Nom et prénoms valide.</p>
+               </ion-text>
+            <ion-item color="light" class="ion-margin-bottom">
+             <ion-icon name="mail" slot="start" color="primary"></ion-icon>
+              <ion-input type="email" name="email" ngModel  email #emailCtrl="ngModel" placeholder="Email" required></ion-input>
+            </ion-item>
+            <ion-text color="danger" *ngIf="!emailCtrl.valid && emailCtrl.touched">
+              <p class="errorMsg">Svp entrez un mail valide.</p>
+            </ion-text>
+            <ion-item color="light" class="ion-margin-bottom">
+              <ion-icon name="key" slot="start" color="primary"></ion-icon>
+              <ion-icon color="primary" slot="end" (click)="changeType()" [name]="type ? 'eye-outline': 'eye-off-outline' "></ion-icon>
+               <ion-input [type]="type ? 'password': 'text'" name="password" ngModel #passwordCtrl="ngModel" placeholder="Password" required minlength="8"></ion-input>
+             </ion-item>
+             <ion-text color="danger" *ngIf="!passwordCtrl.valid && passwordCtrl.touched">
+              <p class="errorMsg">Le mot de passe doit comporter au minimum 8 caractères.</p>
+            </ion-text>
+
+            <ion-item color="light">
+              <ion-icon name="key" slot="start" color="primary"></ion-icon>
+              <ion-icon color="primary" slot="end" (click)="changeType()" [name]="type ? 'eye-outline': 'eye-off-outline' "></ion-icon>
+               <ion-input [type]="type ? 'password': 'text'" name="password" ngModel #passwordCtrl="ngModel" placeholder="Password" required minlength="8"></ion-input>
+             </ion-item>
+             <ion-text color="danger" *ngIf="!passwordCtrl.valid && passwordCtrl.touched">
+              <p class="errorMsg">Le mot de passe doit comporter au minimum 8 caractères.</p>
+            </ion-text>
+            </ion-list>
+          <button type="submit" app-button color="secondary">Continuer</button>
+        </form>
+        <div class="auth-next">
+          Vous avez déjà un compte? <a app-back>Connexion</a>
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <div class="auth-or">Ou</div>
+      <auth-social></auth-social>
+    </div>
+  </app-content>
+</app-page>
+

@@ -1,0 +1,37 @@
+<ion-content class="page-map" [fullscreen]="true" [class.hybrid]="isHybrid">
+  <div class="map-statusbar" *ngIf="loaded"></div>
+  <ng-container *ngIf="loaded">
+    <button type="button" class="map-settings" [routerLink]="['/settings']">
+      <ion-icon src="assets/icons/settings.svg"></ion-icon>
+    </button>
+  </ng-container>
+  <div class="map-controls" *ngIf="loaded">
+    <div class="zoom">
+      <button type="button" (click)="map.zoomIn()">
+        <ion-icon src="assets/icons/add.svg"></ion-icon>
+      </button>
+      <button type="button" (click)="map.zoomOut()">
+        <ion-icon src="assets/icons/remove.svg"></ion-icon>
+      </button>
+    </div>
+    <ng-container *ngIf="geoPermission">
+      <button type="button" class="locate" (click)="locate()">
+        <ion-icon src="assets/icons/gps.svg"></ion-icon>
+      </button>
+    </ng-container>
+  </div>
+  <div class="map-loader" *ngIf="!loaded">
+    <div class="loader-content">
+      <app-spinner></app-spinner>
+    </div>
+  </div>
+  <mgl-map
+    [style]="mapStyle"
+    [center]="mapCenter"
+    [zoom]="[13]"
+    [maxZoom]="18"
+    [minZoom]="6"
+    [class.visible]="loaded"
+    (mapLoad)="ready($event)"
+  ></mgl-map>
+</ion-content>

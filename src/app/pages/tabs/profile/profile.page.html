@@ -1,0 +1,148 @@
+<app-page class="page-favorite">
+  <app-navbar>
+    <h4 slot="center">Mon profile</h4>
+    <button type="button" slot="end" [routerLink]="['/settings']">
+      <ion-icon src="assets/icons/settings.svg"></ion-icon>
+    </button>
+  </app-navbar>
+  <app-content [tabs]="true">
+    <section class="section-overlay" @FadeTransition *ngIf="state.value === 'loading'">
+      <div class="skeleton-header">
+        <app-placeholder class="cover"></app-placeholder>
+        <app-placeholder class="picture"></app-placeholder>
+      </div>
+      <div class="skeleton-body">
+        <app-placeholder class="card"></app-placeholder>
+        <app-placeholder class="card-title"></app-placeholder>
+        <app-placeholder class="card"></app-placeholder>
+      </div>
+    </section>
+    <section @FadeTransition *ngIf="state.value === 'ready'">
+      <div class="profile-header">
+        <profile-picture [user]="user" (valueChange)="photoChange($event)"></profile-picture>
+      </div>
+      <div class="content-body">
+        <div class="app-card profile-pro-card" *ngIf="user.professional">
+          <app-list-item
+            [svgIcon]="'work'"
+            [title]="'Profil professionnel'"
+            [subTitle]="'Met à jour mes informations'"
+            [routerLink]="['/profile/pro']"
+          ></app-list-item>
+        </div>
+
+        <div class="profile-subscribe" *ngIf="!user.professional">
+          <div class="subscribe-container" (click)="promptSubscribe()">
+            <div class="subscriber-content">
+              <p>Propose tes services ou produits à des milliers de clients et accrois tes revenus.</p>
+              <button type="button">Deviens professionnel</button>
+            </div>
+            <div class="subscriber-media">
+              <img src="assets/img/subscribe.png" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-gender">
+          <h4>Je suis :</h4>
+          <app-switch
+            [values]="['male', 'female']"
+            [labels]="['Un homme', 'Une femme']"
+            [initial]="user.gender || 'male'"
+            (valueChange)="genderChange($event)"
+          ></app-switch>
+        </div>
+        <div class="profile-card-title">Informations personnelles</div>
+        <div class="app-card">
+          <profile-card-item
+            slug="name"
+            label="Nom complet"
+            [value]="user.name"
+            [input]="form.name"
+            (valueChange)="valueChange('name', $event)"
+          ></profile-card-item>
+          <profile-card-item
+            slug="email"
+            label="Adresse Email"
+            inputType="email"
+            inputMode="email"
+            [input]="form.email"
+            [value]="user.email"
+            (valueChange)="valueChange('email', $event)"
+          ></profile-card-item>
+          <profile-card-item
+            slug="phone"
+            label="Numéro de téléphone"
+            inputType="tel"
+            inputMode="tel"
+            [value]="user.phone"
+            [input]="form.phone"
+            [inputMaxLength]="10"
+            (valueChange)="valueChange('phone', $event)"
+          ></profile-card-item>
+        </div>
+
+        <div class="profile-card-title">Lieu de résidence</div>
+        <div class="app-card">
+          <profile-card-item
+            slug="city"
+            label="Ville"
+            inputType="select"
+            [inputSelectOptions]="locationsToSelectOptions(cityOptions)"
+            [input]="form.city"
+            [value]="user.city ? user.city.id : null"
+            [name]="user.city ? user.city.name : null"
+            (valueChange)="valueChange('city', $event)"
+          ></profile-card-item>
+          <profile-card-item
+            slug="town"
+            label="Quartier"
+            inputType="select"
+            [inputSelectOptions]="locationsToSelectOptions(townOptions)"
+            [input]="form.town"
+            [value]="user.town ? user.town.id : null"
+            [name]="user.town ? user.town.name : null"
+            (valueChange)="valueChange('town', $event)"
+          ></profile-card-item>
+        </div>
+
+        <profile-password
+          id="locations-anchor"
+          [user]="user"
+          (valueChange)="passwordChange($event)"
+        ></profile-password>
+
+        <div class="app-card">
+          <app-list-item
+            [svgIcon]="'logout'"
+            [title]="'Déconnexion'"
+            (click)="logout()"
+          ></app-list-item>
+        </div>
+      </div>
+    </section>
+
+    <app-notifier
+      @FadeTransition
+      *ngIf="state.value === 'failed'"
+      [title]="'Oups !'"
+      [message]="'Une erreur est survenue lors de la récupération des données.'"
+      (action)="reload()"
+    ></app-notifier>
+
+    <app-notifier
+      @FadeTransition
+      *ngIf="state.value === 'offline'"
+      [icon]="'icons/wifi-off.svg'"
+      [title]="'Pas de connection internet'"
+      [message]="'La liste des professionnels n’est pas disponible lorsque vous êtes hors ligne. veuillez vous connecter à internet et réessayer.'"
+    ></app-notifier>
+  </app-content>
+</app-page>
+
+<app-subscribe
+  @FadeTransition
+  *ngIf="subscribeModal"
+  (confirm)="confirmSubscribe()"
+  (cancel)="cancelSubscribe()"
+></app-subscribe>

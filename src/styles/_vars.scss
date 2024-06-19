@@ -1,0 +1,47 @@
+:root {
+  --app-color-primary: #FE6902;
+  --app-color-secondary: #3C3B4D;
+  --app-color-optional: #25252B;
+  --app-color-background: #F6F5FA;
+
+  --app-h-padding: 25px;
+  --app-v-padding: 30px;
+
+  --app-navbar-height: 56px;
+  --app-tab-bar-height: 56px;
+  --app-tab-bar-margin-bottom: var(--ion-safe-area-bottom, 25px);
+}
+
+html.plt-android,
+html.plt-desktop {
+  --ion-safe-area-top: 25px;
+  --ion-safe-area-bottom: 25px;
+}
+
+html.plt-ios:not(.plt-hybrid) {
+  --ion-safe-area-bottom: 25px;
+}
+
+@media (min-resolution: 160dpi) {
+  html.plt-android {
+    --ion-safe-area-top: 25px;
+  }
+}
+
+@media (min-resolution: 240dpi) {
+  html.plt-android {
+    --ion-safe-area-top: 38px;
+  }
+}
+
+@media (min-resolution: 320dpi) {
+  html.plt-android {
+    --ion-safe-area-top: 50px;
+  }
+}
+
+@media (min-resolution: 480dpi) {
+  html.plt-android {
+    --ion-safe-area-top: 75px;
+  }
+}

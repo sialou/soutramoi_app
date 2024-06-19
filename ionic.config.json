@@ -1,0 +1,7 @@
+{
+  "name": "soutramoi",
+  "type": "angular",
+  "integrations": {
+    "capacitor": {}
+  }
+}

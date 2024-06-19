@@ -1,0 +1,322 @@
+app-page .page-inner {
+  background-color: #FFFFFF;
+}
+
+app-content .content-body {
+  padding: 0 0 95px 0;
+}
+
+.pro-divider {
+  display: block;
+  margin-top: 17px;
+  margin-bottom: 17px;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(var(--ion-color-secondary-rgb), 0.1);
+
+  &.top {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: var(--app-h-padding);
+    margin-right: var(--app-h-padding);
+    width: calc(100% - var(--app-h-padding) * 2);
+  }
+}
+
+.pro-header {
+  position: relative;
+  width: 100%;
+  height: 250px;
+
+  .pro-header-cover {
+    width: 100%;
+    height: 200px;
+    background-color: #818181;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center top;
+  }
+
+  .pro-header-content {
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: var(--app-h-padding);
+    padding-right: var(--app-h-padding);
+    width: 100%;
+
+    .picture {
+      position: relative;
+      padding: 8px;
+      width: 100px;
+      height: 100px;
+      border-radius: 15px;
+      background-color: #FFFFFF;
+      box-shadow: 0 1px 2px 0 rgba(0,0,0, 0.20);
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+
+    .info {
+      flex: 1;
+      margin-left: 15px;
+
+      .name,
+      .job {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1;
+        color: #FFFFFF;
+      }
+
+      .name {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .job {
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0.65;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        align-items: flex-end;
+        margin-top: 10px;
+        height: 50px;
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          width: 100%;
+          height: 37px;
+          outline: none;
+          border-radius: 7px;
+          font-size: 14px;
+          font-weight: 500;
+
+          ion-icon {
+            margin-right: 7px;
+            font-size: 14px;
+          }
+
+          &.primary {
+            background-color: var(--ion-color-primary);
+            color: #FFFFFF;
+          }
+
+          &.outline {
+            background-color: rgba(#575757, 0.07);
+            color: #818181;
+            transition: all 0.2s ease;
+
+            &.liked {
+              background-color: #FFEDE5;
+              color: var(--ion-color-primary);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pro-header-content-shadow {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    height: 60px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100%);
+  }
+}
+
+.pro-badge,
+.pro-description,
+.pro-detail,
+.pro-map,
+.pro-rate,
+.pro-reviews,
+.pro-works {
+  padding-left: var(--app-h-padding);
+  padding-right: var(--app-h-padding);
+}
+
+.pro-badge {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 25px;
+  width: 100%;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    width: 60px;
+    height: 60px;
+    color: #FFFFFF;
+    background-color: var(--ion-color-primary);
+    border-radius: 20px;
+
+    ion-icon {
+      font-size: 25px;
+    }
+  }
+
+  .info {
+    color: var(--ion-color-secondary);
+
+    .name {
+      line-height: 1;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .location {
+      margin-top: 10px;
+      line-height: 1;
+      font-size: 14px;
+      font-weight: 400;
+      opacity: 0.5;
+    }
+  }
+}
+
+.pro-description {
+  margin-bottom: 25px;
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(var(--ion-color-tertiary-rgb), 0.9);
+  }
+}
+
+.pro-detail {
+  margin-bottom: 25px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      list-style: none;
+      line-height: 1.3;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(var(--ion-color-tertiary-rgb), 0.7);
+
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        height: 15px;
+        width: 15px;
+        background-image: url(../../../assets/img/check.png);
+        background-size: cover;
+      }
+    }
+
+    li + li {
+      margin-top: 10px;
+    }
+  }
+}
+
+.pro-rate {
+  margin-bottom: 25px;
+
+  review-form {}
+}
+
+.pro-footer {
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: var(--app-h-padding);
+  padding-right: var(--app-h-padding);
+  background-color: #FFFFFF;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+
+  button.primary,
+  button.outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+
+    ion-icon {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+  }
+
+  button.primary {
+    background-color: var(--ion-color-primary);
+    color: #FFFFFF;
+  }
+
+  button.outline {
+    background-color: rgba(#575757, 0.07);
+    color: #818181;
+    transition: all 0.2s ease;
+
+    &.liked {
+      background-color: #FFEDE5;
+      color: var(--ion-color-primary);
+    }
+  }
+
+  app-placeholder {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+  }
+}
+
+app-page.ios {
+  app-content .content-body {
+    padding-bottom: calc(var(--ion-safe-area-bottom) + 95px);
+  }
+
+  .pro-footer {
+    padding-bottom: calc(var(--ion-safe-area-bottom) + 15px) !important;
+  }
+}

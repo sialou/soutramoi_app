@@ -1,0 +1,70 @@
+<app-page class="page-favorite">
+  <app-navbar>
+    <h4 slot="center">Mes favoris</h4>
+    <button type="button" slot="end" [routerLink]="['/settings']">
+      <ion-icon src="assets/icons/settings.svg"></ion-icon>
+    </button>
+  </app-navbar>
+  <app-content [tabs]="true">
+
+    <section @FadeTransition *ngIf="state.value === 'ready'">
+      <div class="content-header favorite-header">
+        <div class="favorite-input">
+          <ion-icon src="assets/icons/search.svg"></ion-icon>
+          <input
+            type="text"
+            placeholder="Rechercher dans mes favoris"
+            [(ngModel)]="searchPattern"
+            (ngModelChange)="onSearch($event)"
+            [disabled]="stack.length < 2"
+          >
+        </div>
+      </div>
+
+      <div class="content-body">
+        <div class="items-list">
+          <app-professional-card *ngFor="let item of items" [item]="item"></app-professional-card>
+          <div class="favorite-more" *ngIf="stack.length > limit">
+            <button type="button" app-button color="secondary" (click)="showMore()">
+              <ion-icon src="assets/icons/chevron-left.svg" [ngClass]="{less: stack.length === items.length}"></ion-icon>
+              {{ stack.length === items.length ? 'Afficher moins' : 'Afficher plus' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <app-notifier
+      @FadeTransition
+      *ngIf="logged && state.value === 'offline'"
+      [icon]="'icons/wifi-off.svg'"
+      [title]="'Pas de connection internet'"
+      [message]="'La liste des professionnels n’est pas disponible lorsque vous êtes hors ligne. veuillez vous connecter à internet et réessayer.'"
+    ></app-notifier>
+
+    <app-notifier
+      @FadeTransition
+      *ngIf="logged && state.value === 'ready' && !stack.length"
+      [icon]="'icons/work.svg'"
+      [title]="'Vous n\'avez pas de favori'"
+      [message]="'Il semble que vous n’ayez ajouté aucun favori. Vous pouvez en ajouter en cliquant sur le bouton favoris d’un professionnel.'"
+    ></app-notifier>
+
+    <app-notifier
+      @FadeTransition
+      *ngIf="!logged"
+      [icon]="'icons/account.svg'"
+      [title]="'Authentification requise'"
+      [message]="'Pour ajouter vos professionnels favoris veuillez vous connecter ou créer un compte.'"
+      [actionText]="'Se connecter'"
+      (action)="router.navigate(['/tabs/profile'])"
+    ></app-notifier>
+
+    <section class="favorite-loader" @FadeTransition *ngIf="state.value === 'loading'">
+      <app-professional-placeholder></app-professional-placeholder>
+      <app-professional-placeholder></app-professional-placeholder>
+      <app-professional-placeholder></app-professional-placeholder>
+    </section>
+
+  </app-content>
+</app-page>

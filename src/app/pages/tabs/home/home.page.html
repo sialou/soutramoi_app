@@ -1,0 +1,34 @@
+<app-page class="page-home">
+  <app-navbar [start]="false" [titleCentered]="false">
+    <img src="assets/img/logo-name-light.png" alt="SoutraMoi" slot="center">
+    <button type="button" slot="end" [routerLink]="['/settings']">
+      <ion-icon src="assets/icons/settings.svg"></ion-icon>
+    </button>
+  </app-navbar>
+  <app-content [tabs]="true">
+    <section @FadeTransition *ngIf="state.value === 'ready'">
+      <div class="content-body">
+        <div class="content-title">
+          <ion-icon src="assets/icons/diamond.svg"></ion-icon>
+          <span>Professionnels Premium</span>
+        </div>
+        <div class="items-premium">
+          <div class="app-scroll-horizontal">
+            <ng-container *ngFor="let item of premiums">
+              <app-professional-card [columned]="true" [item]="item"></app-professional-card>
+            </ng-container>
+          </div>
+        </div>
+        <div class="items-list">
+          <app-professional-card *ngFor="let item of items" [item]="item"></app-professional-card>
+        </div>
+      </div>
+    </section>
+
+    <section class="professional-loader" @FadeTransition *ngIf="state.value === 'loading'">
+      <app-professional-placeholder></app-professional-placeholder>
+      <app-professional-placeholder></app-professional-placeholder>
+      <app-professional-placeholder></app-professional-placeholder>
+    </section>
+  </app-content>
+</app-page>

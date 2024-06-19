@@ -1,0 +1,100 @@
+:host {
+  --zindex: auto;
+  --backdrop-color: rgba(0,0,0, 0.6);
+  --content-width: 280px;
+  --content-border-radius: 15px;
+  --content-background-color: #FFFFFF;
+  --title-text-color: var(--app-color-dark);
+  --body-text-color: var(--app-color-dark);
+  --button-border-radius: 0;
+  --button-confirm-background: var(--ion-color-primary);
+  --button-confirm-color: #FFFFFF;
+  --button-cancel-background: var(--ion-color-primary);
+  --button-cancel-color: #FFFFFF;
+
+  .dialog-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: var(--zindex);
+    background-color: var(--backdrop-color);
+
+    .dialog-content {
+      position: relative;
+      width: var(--content-width);
+      background-color: var(--content-background-color);
+      border-radius: var(--content-border-radius);
+
+      .dialog-title {
+        position: relative;
+        padding: 20px;
+        line-height: 24px;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--title-text-color);
+        text-align: center;
+      }
+
+      .dialog-body {
+        position: relative;
+        padding: 20px;
+        max-height: calc(100% - 68px);
+        color: var(--body-text-color);
+        font-size: 14px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .dialog-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        position: relative;
+        padding: 20px;
+
+        button {
+          padding: 0 10px;
+          height: 40px;
+          font-size: 14px;
+          font-weight: 400;
+          border-radius: var(--button-border-radius);
+          outline: none;
+
+          &.confirm,
+          &.cancel {
+            text-transform: capitalize;
+          }
+
+          &.confirm {
+            background-color: var(--button-confirm-background);
+            color: var(--button-confirm-color);
+          }
+
+          &.cancel {
+            background: transparent;
+            border: 1px solid var(--button-cancel-background);
+            color: var(--button-cancel-color);
+          }
+        }
+
+        button + button {
+          margin-left: 20px;
+        }
+      }
+
+      .dialog-title + .dialog-body {
+        padding-top: 0;
+      }
+
+      .dialog-actions+.dialog-body {
+        padding-bottom: 0;
+      }
+    }
+  }
+}

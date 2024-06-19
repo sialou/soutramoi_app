@@ -1,0 +1,58 @@
+app-content .content-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.content-title,
+.items-list {
+  padding-left: var(--app-h-padding);
+  padding-right: var(--app-h-padding);
+}
+
+.content-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  color: var(--ion-color-secondary);
+  font-size: 14px;
+  opacity: 0.5;
+
+  ion-icon {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+}
+
+.items-premium {
+  --fix-shadow-padding: 10px;
+
+  margin-bottom: calc(var(--app-v-padding) - var(--fix-shadow-padding));
+
+  .app-scroll-horizontal {
+    padding-left: var(--app-h-padding);
+    padding-right: var(--app-h-padding);
+    padding-bottom: var(--fix-shadow-padding);
+
+    app-professional-card {
+      flex: 0 0 auto;
+      display: inline-flex;
+      width: 230px;
+    }
+
+    app-professional-card + app-professional-card {
+      margin: 0;
+      margin-left: 20px;
+    }
+  }
+}
+
+.professional-loader {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: var(--app-h-padding);
+  padding-right: var(--app-h-padding);
+
+  app-professional-placeholder + app-professional-placeholder {
+    margin-top: 20px;
+  }
+}

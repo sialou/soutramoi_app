@@ -1,0 +1,118 @@
+:host {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  .header {
+    position: relative;
+    height: 255px;
+
+    .cover {
+      height: 200px;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: row;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding-left: var(--app-h-padding);
+      padding-right: var(--app-h-padding);
+
+      .picture {
+        padding: 8px;
+        width: 100px;
+        height: 100px;
+        background-color: #FFFFFF;
+        border-radius: 15px;
+
+        app-placeholder {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+        }
+      }
+
+      .actions {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+        align-items: flex-end;
+        padding-left: 10px;
+        padding-bottom: 8px;
+
+        app-placeholder {
+          width: 100%;
+          height: 37px;
+          border-radius: 7px;
+        }
+      }
+    }
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 30px;
+    padding-left: var(--app-h-padding);
+    padding-right: var(--app-h-padding);
+    width: 100%;
+
+    .icon {
+      margin-right: 15px;
+      width: 60px;
+      height: 60px;
+      border-radius: 20px;
+    }
+
+    .info {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      .job {
+        width: 70%;
+        height: 18px;
+        border-radius: 9px;
+      }
+
+      .location {
+        margin-top: 10px;
+        width: 45%;
+        height: 13px;
+        border-radius: 7px;
+      }
+    }
+  }
+
+  .description {
+    padding-left: var(--app-h-padding);
+    padding-right: var(--app-h-padding);
+
+    app-placeholder {
+      height: 13px;
+      border-radius: 7px;
+    }
+
+    app-placeholder + app-placeholder {
+      margin-top: 10px;
+    }
+  }
+
+  hr {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: var(--app-h-padding);
+    margin-right: var(--app-h-padding);
+    width: calc(100% - var(--app-h-padding) * 2);
+    height: 1px;
+    background-color: rgba(var(--ion-color-secondary-rgb), 0.1);
+  }
+}

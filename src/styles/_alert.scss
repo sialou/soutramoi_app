@@ -1,0 +1,271 @@
+body.swal2-height-auto {
+  height: inherit !important;
+}
+
+:root {
+  --app-device-pixel-ratio: 1;
+
+  @media (min-resolution: 2dppx) {
+    --app-device-pixel-ratio: 2;
+  }
+
+  @media (min-resolution: 3dppx) {
+    --app-device-pixel-ratio: 3;
+  }
+}
+
+.ios {
+  --app-dialog-bg-color: rgba(255, 255, 255, 0.95);
+  --app-dialog-box-shadow: none;
+  --app-dialog-width: 270px;
+  --app-dialog-border-radius: 15px;
+  --app-dialog-text-color: #000;
+  --app-dialog-text-align: center;
+  --app-dialog-font-size: 14px;
+  --app-dialog-title-text-color: inherit;
+  --app-dialog-title-font-size: 18px;
+  --app-dialog-title-font-weight: 600;
+  --app-dialog-title-line-height: inherit;
+  --app-dialog-title-text-align: center;
+  --app-dialog-button-font-size: 17px;
+  --app-dialog-button-height: 44px;
+  --app-dialog-button-letter-spacing: 0;
+  --app-dialog-button-text-align: center;
+  --app-dialog-button-text-color: var(--ion-color-primary);
+  --app-dialog-button-font-weight: 400;
+  --app-dialog-button-text-transform: none;
+  --app-dialog-button-pressed-bg-color: rgba(230, 230, 230, 0.95);
+  --app-dialog-input-font-size: 14px;
+  --app-dialog-input-height: 32px;
+  --app-dialog-input-bg-color: #fff;
+  --app-dialog-input-border-color: rgba(0, 0, 0, 0.3);
+  --app-dialog-input-border-width: 1px;
+  --app-dialog-input-placeholder-color: #a9a9a9;
+  --app-dialog-preloader-size: 34px;
+}
+
+.md {
+  --app-dialog-bg-color: #fff;
+  --app-dialog-box-shadow: var(--app-elevation-24);
+  --app-dialog-width: 280px;
+  --app-dialog-border-radius: 15px;
+  --app-dialog-text-color: rgba(0, 0, 0, 0.54);
+  --app-dialog-text-align: left;
+  --app-dialog-font-size: 16px;
+  --app-dialog-title-text-color: #333333;
+  --app-dialog-title-font-size: 20px;
+  --app-dialog-title-font-weight: 500;
+  --app-dialog-title-line-height: 1.3;
+  --app-dialog-title-text-align: center;
+  --app-dialog-button-font-size: 14px;
+  --app-dialog-button-height: 36px;
+  --app-dialog-button-letter-spacing: 0.03em;
+  --app-dialog-button-text-align: center;
+  --app-dialog-button-text-color: var(--ion-color-primary);
+  --app-dialog-button-font-weight: 500;
+  --app-dialog-button-text-transform: uppercase;
+  --app-dialog-button-pressed-bg-color: rgba(0, 0, 0, 0.1);
+  --app-dialog-input-font-size: 16px;
+  --app-dialog-input-height: 36px;
+  --app-dialog-input-bg-color: #fff;
+  --app-dialog-input-border-color: transparent;
+  --app-dialog-input-border-width: 0px;
+  --app-dialog-input-placeholder-color: rgba(0, 0, 0, 0.35);
+  --app-dialog-preloader-size: 32px;
+}
+
+.swal2-container {
+  display: flex;
+  position: fixed;
+  padding: 0 !important;
+  z-index: var(--app-dialogs-zindex) !important;
+  font-family: var(--ion-font-family) !important;
+
+  .swal2-popup {
+    display: none;
+    position: relative;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    width: var(--app-dialog-width);
+    border-radius: var(--app-dialog-border-radius);
+    text-align: var(--app-dialog-text-align);
+    color: var(--app-dialog-text-color);
+    font-size: var(--app-dialog-font-size);
+    box-shadow: var(--app-dialog-box-shadow);
+
+    &.swal2-show {
+      animation: alert-show .4s;
+    }
+
+    &.swal2-hide {
+      animation: alert-hide .4s;
+    }
+
+    .swal2-icon,
+    .swal2-image {
+      display: none !important;
+    }
+
+    .swal2-title {
+      color: var(--app-dialog-title-text-color);
+      font-size: var(--app-dialog-title-font-size);
+      font-weight: var(--app-dialog-title-font-weight);
+      line-height: var(--app-dialog-title-line-height);
+      text-align: var(--app-dialog-title-text-align);
+    }
+
+    .swal2-html-container {
+      text-align: var(--app-dialog-text-align);
+      color: var(--app-dialog-text-color);
+      font-size: var(--app-dialog-font-size);
+      font-weight: var(--app-dialog-font-weight);
+      width: 100%;
+    }
+
+    .swal2-actions {
+      position: relative;
+      display: flex;
+
+      button,
+      button:active,
+      button:visited,
+      button:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      button {
+        cursor: pointer;
+        display: block;
+        overflow: hidden;
+        position: relative;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        box-sizing: border-box;
+        color: var(--app-dialog-button-text-color);
+        font-size: var(--app-dialog-button-font-size);
+        height: var(--app-dialog-button-height);
+        line-height: var(--app-dialog-button-height);
+        letter-spacing: var(--app-dialog-button-letter-spacing);
+        text-align: var(--app-dialog-button-text-align);
+        font-weight: var(--app-dialog-button-font-weight);
+        text-transform: var(--app-dialog-button-text-transform);
+      }
+    }
+
+    .swal2-footer {
+      display: none !important;
+    }
+  }
+}
+
+.ios .swal2-container {
+  .swal2-popup {
+    .swal2-title {
+      margin: 0;
+      padding: 15px 15px 0 15px;
+    }
+
+    .swal2-html-container {
+      padding: 0 15px 15px 15px;
+    }
+
+    .swal2-actions {
+      flex-direction: row-reverse;
+      justify-content: center;
+      margin: 0;
+      height: 44px;
+
+      &::after {
+        display: none;
+      }
+
+      button {
+        margin: 0;
+        width: 100%;
+        padding: 0 5px;
+        flex: 1;
+        background: none;
+        border-radius: 0;
+
+        &.swal2-cancel {
+          &::after {
+            display: none;
+          }
+        }
+
+        &.swal2-confirm {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.md .swal2-container {
+  .swal2-popup {
+    .swal2-title {
+      margin: 0;
+      padding: 20px 24px 0 24px;
+      width: 100%;
+    }
+
+    .swal2-html-container {
+      margin: auto;
+      padding: 20px 24px 20px 24px;
+      line-height: 24px;
+    }
+
+    .swal2-actions {
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      margin: 0;
+      padding: 6px 8px;
+      height: 48px;
+      overflow: hidden;
+      box-sizing: border-box;
+
+      button {
+        margin: 0;
+        padding: 0 8px;
+        border-radius: 4px;
+        width: initial;
+        min-width: 64px;
+        border: none;
+        background: none;
+
+        &.swal2-confirm {
+          margin-left: 4px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+@keyframes alert-show {
+  from {
+    opacity: 0;
+    transform: scale(1.185);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes alert-hide {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(0.815);
+    opacity: 0;
+  }
+}

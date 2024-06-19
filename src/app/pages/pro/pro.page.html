@@ -1,0 +1,90 @@
+<app-page
+  class="page-professional"
+  [backgroundColor]="'#FFFFFF'"
+  [class.ios]="isIos"
+>
+  <app-navbar>
+    <button type="button" slot="start" app-back>
+      <ion-icon src="assets/icons/back.svg"></ion-icon>
+    </button>
+    <img src="assets/img/logo-name-light.png" alt="SoutraMoi" slot="center">
+  </app-navbar>
+  <app-content>
+    <ng-container *ngIf="loading">
+      <pro-placeholder></pro-placeholder>
+    </ng-container>
+    <ng-container *ngIf="!loading">
+      <div class="pro-header">
+        <div class="pro-header-cover" [style.backgroundImage]="'url(' + profile.coverUrl + ')'"></div>
+        <div class="pro-header-content">
+          <app-avatar [url]="profile.photoUrl" [size]="100" [padding]="8" [radius]="15" [innerRadius]="10" [shadow]="true"></app-avatar>
+          <div class="info">
+            <div class="name">{{ profile.name }}</div>
+            <div class="job">{{ profile.job }}</div>
+            <div class="actions">
+              <button type="button" class="primary">Contacter</button>
+              <button type="button" class="outline" [ngClass]="{liked: profile.liked}" (click)="like()">
+                <ion-icon src="assets/icons/heart.svg" *ngIf="profile.liked"></ion-icon>
+                <ion-icon src="assets/icons/heart-outline.svg" *ngIf="!profile.liked"></ion-icon>
+                <span>{{ profile.liked ? 'Suivi' : 'Suivre'}}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="pro-header-content-shadow"></div>
+      </div>
+      <div class="content-body">
+        <hr class="pro-divider top">
+        <div class="pro-badge">
+          <div class="icon">
+            <ion-icon src="assets/icons/work.svg"></ion-icon>
+          </div>
+          <div class="info">
+            <div class="name">{{ profile.job }}</div>
+            <div class="location">{{ profile.location }}</div>
+            <div class="price">Main d'oeuvre à partir de : {{ profile.price }} Fcfa</div>
+          </div>
+        </div>
+        <div class="pro-description">
+          <p [innerText]="profile.description"></p>
+        </div>
+        <div class="pro-detail">
+          <div class="profile-heading">Services proposés</div>
+          <ul class="detail-list">
+            <li *ngFor="let item of profile.services">{{ item }}</li>
+          </ul>
+        </div>
+        <div class="pro-works">
+          <pro-works [profile]="profile"></pro-works>
+        </div>
+        <div class="pro-rate">
+          <div class="profile-heading">
+            Noter ce professionnel
+            <h5 class="after">Donnez votre avis aux autres utilisateurs</h5>
+          </div>
+          <pro-reviews-form [profile]="profile"></pro-reviews-form>
+        </div>
+        <div class="pro-reviews">
+          <pro-reviews-list [profile]="profile"></pro-reviews-list>
+        </div>
+        <div class="pro-map" *ngIf="profile.coords">
+          <pro-map [profile]="profile"></pro-map>
+        </div>
+      </div>
+    </ng-container>
+    <div class="pro-footer">
+      <ng-container *ngIf="!loading">
+        <button type="button" class="primary">Contacter</button>
+        <button type="button" class="outline" [ngClass]="{liked: profile.liked}" (click)="like()">
+          <ion-icon src="assets/icons/heart.svg" *ngIf="profile.liked"></ion-icon>
+          <ion-icon src="assets/icons/heart-outline.svg" *ngIf="!profile.liked"></ion-icon>
+          <span>{{ profile.liked ? 'Suivi' : 'Suivre'}}</span>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="loading">
+        <app-placeholder></app-placeholder>
+        <app-placeholder></app-placeholder>
+      </ng-container>
+    </div>
+  </app-content>
+</app-page>
